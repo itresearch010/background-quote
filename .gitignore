@@ -1,0 +1,33 @@
+﻿# use glob syntax
+syntax: glob
+
+# Ignore Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.ini
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+[Bb]in
+[Dd]ebug*/
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+[Bb]uild[Ll]og.*
+*.[Pp]ublish.xml

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundQuotes", "BackgroundQuotes.csproj", "{8448C54C-E894-4469-97FC-69CCF4C28D95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8448C54C-E894-4469-97FC-69CCF4C28D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8448C54C-E894-4469-97FC-69CCF4C28D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8448C54C-E894-4469-97FC-69CCF4C28D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8448C54C-E894-4469-97FC-69CCF4C28D95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12BE72CE-8CBD-4577-A410-AA767D8F7D87}
+	EndGlobalSection
+EndGlobal
