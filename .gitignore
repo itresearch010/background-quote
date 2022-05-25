@@ -3,7 +3,6 @@ syntax: glob
 
 # Ignore Visual Studio
 *.obj
-*.exe
 *.pdb
 *.user
 *.aps
