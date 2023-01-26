@@ -13,6 +13,7 @@ namespace BackgroundQuotes
         private const int startTextSize = 100;
         private const string fontName = "Segoe print";
         private Random rnd = new Random();
+        private List<string> logs = new List<string>();
 
         public Form1()
         {
@@ -49,25 +50,42 @@ namespace BackgroundQuotes
                     CreateNewBackground(imageFileInfos[index++].Name, quote, rnd);
                 }
             }
+            if (logs.Count>0) {
+                string log = string.Join("\n", logs);
+                MessageBox.Show(log);
+            }
         }
 
         void CreateNewBackground(string fileName, string message, Random random)
-        {
-            Image image = Image.FromFile(Path.Combine(tbImagePath.Text, fileName));
-            Graphics graphics = Graphics.FromImage(image);
-            int x = 0;
-            int y = 0;
-            int width = image.Width;
-            int hight = Convert.ToInt32(image.Height * 0.25);
-            Font font = getFont(graphics, message, hight, width);
+        { 
 
-            SolidBrush semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 0, 0));
-            graphics.FillRectangle(semiTransBrush, x, y, width, hight);
-            graphics.DrawString(message, font,
-                new SolidBrush(Color.FromArgb(random.Next(150, 255), random.Next(150, 255), random.Next(150, 255))),
-                new RectangleF(x, y, width, hight),
-                new StringFormat(StringFormatFlags.LineLimit));
-            image.Save(Path.Combine(tbOutputDir.Text, fileName), ImageFormat.Jpeg);
+            Image image=null;
+            Graphics graphics = null;
+            try
+            {
+                 image = Image.FromFile(Path.Combine(tbImagePath.Text, fileName));
+                graphics = Graphics.FromImage(image);
+                int x = 0;
+                int y = 0;
+                int width = image.Width;
+                int hight = Convert.ToInt32(image.Height * 0.25);
+                Font font = getFont(graphics, message, hight, width);
+
+                SolidBrush semiTransBrush = new SolidBrush(Color.FromArgb(128, 0, 0, 0));
+                graphics.FillRectangle(semiTransBrush, x, y, width, hight);
+                graphics.DrawString(message, font,
+                    new SolidBrush(Color.FromArgb(random.Next(150, 255), random.Next(150, 255), random.Next(150, 255))),
+                    new RectangleF(x, y, width, hight),
+                    new StringFormat(StringFormatFlags.LineLimit));
+                image.Save(Path.Combine(tbOutputDir.Text, fileName), ImageFormat.Jpeg);
+                graphics.Dispose();
+                image.Dispose();
+            }
+            catch (Exception e) {
+                logs.Add(fileName + " " + e.Message);
+                graphics?.Dispose();
+                image?.Dispose();
+            }
         }
 
 
